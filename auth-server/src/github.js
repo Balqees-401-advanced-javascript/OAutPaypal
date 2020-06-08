@@ -41,16 +41,14 @@ module.exports = async function authorize(req, res, next) {
 async function exchangeCodeForToken(code) {
 
   console.log('#######---------------before-------------------#########',tokenServerUrl);
-  let tokenResponse = await superagent.post(tokenServerUrl)
+  let tokenResponse = await superagent.post('https://api.sandbox.paypal.com/v1/oauth2/token')
   .set('Authorization', `Basic QVlUVzZ4TlpzQ05PWE1EZWlzZFM0ZUhSSllXTTZnRDAwcTUwRkp0YlBTRWIwMll3VUdBYUpLNFZ5MjFNaFNrNDU2T3g4S0ZpLTc1ejN6c0g6RUR1ZjhnaFI3RUd5NFFBbEVXTE01OHZoa2dFX0YxUlpFenlVZDJhX3NmRnV6OHN4N25mR2x0endaQl9tWXpQSU9DbkVnSFBvV0NkeTBGZUo=`)
-  
+  .set('Content-Type','application/x-www-form-urlencoded')
   .send({
     code: code,
     grant_type: 'client_credentials',
   }
   )
-  
-  
 
   let access_token = tokenResponse.body.access_token;
   console.log('#######---------------token-------------------#########', access_token);
