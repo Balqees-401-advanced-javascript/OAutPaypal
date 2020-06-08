@@ -42,7 +42,7 @@ async function exchangeCodeForToken(code) {
 
   console.log('#######---------------before-------------------#########',tokenServerUrl);
   let tokenResponse = await superagent.post(tokenServerUrl)
-  .set('Authorization', `Basic QVlUVzZ4TlpzQ05PWE1EZWlzZFM0ZUhSSllXTTZnRDAwcTUwRkp0YlBTRWIwMll3VUdBYUpLNFZ5MjFNaFNrNDU2T3g4S0ZpLTc1ejN6c0g=:EDuf8ghR7EGy4QAlEWLM58vhkgE_F1RZEzyUd2a_sfFuz8sx7nfGltzwZB_mYzPIOCnEgHPoWCdy0FeJ`)
+  .set('Authorization', `Basic {QVlUVzZ4TlpzQ05PWE1EZWlzZFM0ZUhSSllXTTZnRDAwcTUwRkp0YlBTRWIwMll3VUdBYUpLNFZ5MjFNaFNrNDU2T3g4S0ZpLTc1ejN6c0g=:EDuf8ghR7EGy4QAlEWLM58vhkgE_F1RZEzyUd2a_sfFuz8sx7nfGltzwZB_mYzPIOCnEgHPoWCdy0FeJ}`)
   
   .send({
     code: code,
