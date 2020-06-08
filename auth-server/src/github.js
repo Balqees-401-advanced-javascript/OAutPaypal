@@ -71,7 +71,7 @@ async function getRemoteUserInfo(token) {
 
 async function getUser(remoteUser) {
   let userRecord = {
-    username: remoteUser.login,
+    username: remoteUser.name,
     password: 'oauthpassword'
   }
 
