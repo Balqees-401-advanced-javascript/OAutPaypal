@@ -38,6 +38,7 @@ module.exports = async function authorize(req, res, next) {
 
 async function exchangeCodeForToken(code) {
 
+  console.log('#######---------------before-------------------#########',tokenServerUrl);
   let tokenResponse = await superagent.post(tokenServerUrl).send({
     code: code,
     client_id: CLIENT_ID,
@@ -53,7 +54,7 @@ async function exchangeCodeForToken(code) {
   
 
   let access_token = tokenResponse.body.access_token;
-
+  console.log('#######---------------token-------------------#########', access_token);
   return access_token;
 
 }
