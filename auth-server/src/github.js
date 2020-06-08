@@ -33,7 +33,8 @@ module.exports = async function authorize(req, res, next) {
     console.log('(4) LOCAL USER', user);
 
     next();
-  } catch (e) { next(`ERROR: ${e.message}`) }
+  } catch (e) {console.log('errrrrrrrrrrrrrrrrrrrrrrrrrrrrrr',e);
+     next(`ERROR: ${e.message}`) }
 
 }
 
