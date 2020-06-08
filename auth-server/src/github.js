@@ -42,11 +42,11 @@ async function exchangeCodeForToken(code) {
 
   console.log('#######---------------before-------------------#########',tokenServerUrl);
   let tokenResponse = await superagent.post(tokenServerUrl)
-  .set('Authorization', `Basic QVlUVzZ4TlpzQ05PWE1EZWlzZFM0ZUhSSllXTTZnRDAwcTUwRkp0YlBTRWIwMll3VUdBYUpLNFZ5MjFNaFNrNDU2T3g4S0ZpLTc1ejN6c0g=:RUR1ZjhnaFI3RUd5NFFBbEVXTE01OHZoa2dFX0YxUlpFenlVZDJhX3NmRnV6OHN4N25mR2x0endaQl9tWXpQSU9DbkVnSFBvV0NkeTBGZUo=`)
+  .set('Authorization', `Basic QVlUVzZ4TlpzQ05PWE1EZWlzZFM0ZUhSSllXTTZnRDAwcTUwRkp0YlBTRWIwMll3VUdBYUpLNFZ5MjFNaFNrNDU2T3g4S0ZpLTc1ejN6c0g6RUR1ZjhnaFI3RUd5NFFBbEVXTE01OHZoa2dFX0YxUlpFenlVZDJhX3NmRnV6OHN4N25mR2x0endaQl9tWXpQSU9DbkVnSFBvV0NkeTBGZUo=`)
   
   .send({
     code: code,
-    grant_type: 'authorization_code',
+    grant_type: 'client_credentials',
   }
   )
   
