@@ -46,10 +46,10 @@ async function exchangeCodeForToken(code) {
   .set('Content-Type','application/x-www-form-urlencoded')
   .send({
     code: code,
-    grant_type: 'client_credentials',
+    grant_type: 'authorization_code',
   }
   )
-
+  // let refresh_token = tokenResponse.body.refresh_token;
   let access_token = tokenResponse.body.access_token;
   console.log('#######---------------token-------------------#########', access_token);
   return access_token;
