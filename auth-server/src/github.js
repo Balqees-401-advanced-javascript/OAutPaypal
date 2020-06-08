@@ -3,6 +3,7 @@
 const superagent = require('superagent');
 const users = require('./users.js');
 
+
 /*
   Resources
   https://developer.github.com/apps/building-oauth-apps/
@@ -39,14 +40,15 @@ module.exports = async function authorize(req, res, next) {
 async function exchangeCodeForToken(code) {
 
   console.log('#######---------------before-------------------#########',tokenServerUrl);
-  let tokenResponse = await superagent.post(tokenServerUrl).send({
+  let tokenResponse = await superagent.post('')
+  .set('Authorization', `Basic QVlUVzZ4TlpzQ05PWE1EZWlzZFM0ZUhSSllXTTZnRDAwcTUwRkp0YlBTRWIwMll3VUdBYUpLNFZ5MjFNaFNrNDU2T3g4S0ZpLTc1ejN6c0g=:EDuf8ghR7EGy4QAlEWLM58vhkgE_F1RZEzyUd2a_sfFuz8sx7nfGltzwZB_mYzPIOCnEgHPoWCdy0FeJ`)
+  
+  .send({
     code: code,
     grant_type: 'authorization_code',
   }
   )
-  .set("Accept", "application/json")
-  .set("Accept-Language", "en_US")
-  .set("content-type", "application/x-www-form-urlencoded")
+  
   
 
   let access_token = tokenResponse.body.access_token;
@@ -54,6 +56,7 @@ async function exchangeCodeForToken(code) {
   return access_token;
 
 }
+
 
 async function getRemoteUserInfo(token) {
 
