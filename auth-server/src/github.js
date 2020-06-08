@@ -53,19 +53,16 @@ async function exchangeCodeForToken(code) {
   let access_token = tokenResponse.body.access_token;
   console.log('#######---------------token-------------------#########', access_token);
   return access_token;
-
 }
 
 
 async function getRemoteUserInfo(token) {
-
+  console.log('#######---------------Beforuser-------------------#########' );
   let userResponse =
-    await superagent.get(remoteAPI)
-      .set('user-agent', 'express-app')
+    await superagent.get('https://api.sandbox.paypal.com/v1/identity/oauth2/userinfo')
       .set('Authorization', `Bearer ${token}`)
       .set('Content-Type', 'application/json')
-
-
+      console.log('#######---------------user-------------------#########', userResponse.body);
   let user = userResponse.body;
 
   return user;
