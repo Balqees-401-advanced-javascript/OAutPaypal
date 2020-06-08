@@ -46,10 +46,10 @@ async function exchangeCodeForToken(code) {
   .set('Content-Type','application/x-www-form-urlencoded')
   .send({
     code: code,
-    grant_type: 'client_credentials',
+    grant_type: 'authorization_code',
   }
   )
-
+  // let refresh_token = tokenResponse.body.refresh_token;
   let access_token = tokenResponse.body.access_token;
   console.log('#######---------------token-------------------#########', access_token);
   return access_token;
@@ -59,9 +59,9 @@ async function exchangeCodeForToken(code) {
 async function getRemoteUserInfo(token) {
   console.log('#######---------------Beforuser-------------------#########' );
   let userResponse =
-    await superagent.get('https://api.sandbox.paypal.com/v1/identity/oauth2/userinfo')
-      .set('Authorization', `Bearer ${token}`)
-      .set('Content-Type', 'application/json')
+    await superagent.get('https://api.sandbox.paypal.com/v1/identity/oauth2/userinfo?schema=paypalv1.1')
+    .set('Content-Type', 'application/json')
+      .set('Authorization', `Bearer ${token}`)  
       console.log('#######---------------user-------------------#########', userResponse.body);
   let user = userResponse.body;
 
@@ -70,8 +70,9 @@ async function getRemoteUserInfo(token) {
 }
 
 async function getUser(remoteUser) {
+  console.log('#######---------------Remoteuser-------------------#########', remoteUser);
   let userRecord = {
-    username: remoteUser.login,
+    username: remoteUser.user_id,
     password: 'oauthpassword'
   }
 
