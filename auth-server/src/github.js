@@ -42,6 +42,7 @@ async function exchangeCodeForToken(code) {
     code: code,
     client_id: CLIENT_ID,
     client_secret: CLIENT_SECRET,
+    responce_type: 'token',
     redirect_uri: API_SERVER,
     grant_type: 'authorization_code',
   })
