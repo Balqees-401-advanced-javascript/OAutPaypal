@@ -45,7 +45,12 @@ async function exchangeCodeForToken(code) {
     responce_type: 'token',
     redirect_uri: API_SERVER,
     grant_type: 'authorization_code',
-  })
+  }
+  )
+  .set("Accept", "application/json")
+  .set("Accept-Language", "en_US")
+  .set("content-type", "application/x-www-form-urlencoded")
+  
 
   let access_token = tokenResponse.body.access_token;
 
@@ -80,3 +85,7 @@ async function getUser(remoteUser) {
   return [user, token];
 
 }
+
+
+
+
