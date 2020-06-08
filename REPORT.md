@@ -1,9 +1,14 @@
 # OAuth Comparative Analysis
 
 ## OAuth Provider Name 
-
+     - Paypal
 ### Research Conducted By: Student Names
+     - Sondos Abu elian.
+     - Balqees Qasem .
+     - Ammar Badwan.
+     - Ruwaid Al Sayyed.
 
+     
 ### Overall Score and Comments
 #### Score (Out of 10): 10
 #### General Comments
