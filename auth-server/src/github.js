@@ -57,7 +57,9 @@ async function getRemoteUserInfo(token) {
   let userResponse =
     await superagent.get(remoteAPI)
       .set('user-agent', 'express-app')
-      .set('Authorization', `token ${token}`)
+      .set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json')
+
 
   let user = userResponse.body;
 
