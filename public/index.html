@@ -14,13 +14,13 @@
 
   <script>
 
-    let URL = "https://api.sandbox.paypal.com/v1/oauth2/token";
+    let URL = "https://www.sandbox.paypal.com/connect";
 
     let options = {
       client_id: 'AYTW6xNZsCNOXMDeisdS4eHRJYWM6gD00q50FJtbPSEb02YwUGAaJK4Vy21MhSk456Ox8KFi-75z3zsH',
       redirect_uri: 'https://paypalbestteam.herokuapp.com/oauth',
-      scope: 'read:user',
-      state: 'asldfjdfs'
+      scope: 'openid',
+      flowEntry: 'static'
     }
 
     let QueryString = Object.keys(options).map((key) => {
